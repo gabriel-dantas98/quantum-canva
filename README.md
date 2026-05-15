@@ -1,2 +1,15 @@
 # quantum-canva
-Bloco 1 — Estratégia e Governança. Briefing executivo da transformação agêntica da Quantum Commerce: diagnóstico, gargalos, AI Strategy Canvas e framework de adoção em 4 ondas.
+
+This repository was automatically deployed from a Claude code snippet.
+
+## About
+
+This project was deployed using the Vibe Deploy.
+
+## Live Site
+
+This site is automatically deployed to GitHub Pages. Any changes pushed to the main branch will be automatically deployed.
+
+---
+
+*Deployed on 2026-05-15*
