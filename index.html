@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Estratégia e Governança | Quantum Commerce">
+    <meta property="og:description" content="Estratégia e Governança. Briefing executivo da transformação agêntica da Quantum Commerce: diagnóstico, gargalos, AI Strategy Canvas e framework de adoção em 4 ondas.">
+    <meta property="og:image" content="https://www.vibe-deploy.com.br/api/og/13">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Estratégia e Governança | Quantum Commerce">
+    <meta property="twitter:description" content="Estratégia e Governança. Briefing executivo da transformação agêntica da Quantum Commerce: diagnóstico, gargalos, AI Strategy Canvas e framework de adoção em 4 ondas.">
+    <meta property="twitter:image" content="https://www.vibe-deploy.com.br/api/og/13">
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.png" />
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Bloco 1 — Estratégia e Governança. Briefing executivo da transformação agêntica da Quantum Commerce: diagnóstico, gargalos, AI Strategy Canvas e framework de adoção em 4 ondas.">
+<title>Bloco 1 — Estratégia e Governança | Quantum Commerce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans+Mono:wght@400;500&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d1b2a;
+    --ink-soft: #41546a;
+    --ink-faint: #7d8da0;
+    --paper: #f4f1ea;
+    --paper-warm: #ece7db;
+    --card: #fffdf8;
+    --line: #d8d2c4;
+    --signal: #c45a3b;
+    --signal-deep: #8f3a22;
+    --teal: #1d6e56;
+    --gold: #b07d2a;
+    --navy: #1f3a5f;
+    --grid: rgba(13,27,42,0.04);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Spline Sans', sans-serif;
+    background: var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---- HEADER ---- */
+  header {
+    padding: 64px 0 38px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 0;
+  }
+  .eyebrow {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--signal-deep);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--signal);
+  }
+  .sub {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 620px;
+  }
+  .meta-row {
+    display: flex;
+    gap: 28px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .meta {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  .meta b { color: var(--ink); font-weight: 500; }
+
+  /* ---- NAV ---- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 0;
+  }
+  .nav-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+  }
+  .nav-inner button {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 16px 14px;
+    color: var(--ink-faint);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-inner button:hover { color: var(--ink); }
+  .nav-inner button.active {
+    color: var(--signal-deep);
+    border-bottom-color: var(--signal);
+  }
+
+  /* ---- SECTIONS ---- */
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  .sec-num {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12px;
+    color: var(--signal);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(26px, 3.6vw, 34px);
+    letter-spacing: -0.015em;
+    margin-bottom: 20px;
+    line-height: 1.12;
+  }
+  p.lead { font-size: 17px; color: var(--ink-soft); margin-bottom: 22px; }
+  p.body { margin-bottom: 16px; color: var(--ink-soft); }
+  p.body strong { color: var(--ink); font-weight: 600; }
+
+  /* ---- PULL QUOTE ---- */
+  .pull {
+    border-left: 3px solid var(--signal);
+    padding: 6px 0 6px 26px;
+    margin: 30px 0;
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  /* ---- DIAGNOSIS CARDS ---- */
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 28px 0 8px;
+  }
+  .dcard {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 24px;
+    position: relative;
+  }
+  .dcard.reactive { border-top: 3px solid var(--ink-faint); }
+  .dcard.agentic { border-top: 3px solid var(--signal); }
+  .dcard h4 {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .dcard .big {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .dcard.agentic .big { color: var(--signal-deep); }
+  .dcard p { font-size: 14.5px; color: var(--ink-soft); }
+  .arrow-between {
+    text-align: center;
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12px;
+    color: var(--signal);
+    letter-spacing: 0.1em;
+    margin: 4px 0;
+  }
+
+  /* ---- GARGALOS ---- */
+  .gargalo {
+    display: grid;
+    grid-template-columns: 48px 1fr auto;
+    gap: 20px;
+    align-items: start;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    transition: background 0.18s;
+  }
+  .gargalo:hover { background: var(--paper-warm); }
+  .gargalo:last-child { border-bottom: none; }
+  .g-num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--line);
+    line-height: 1;
+    transition: color 0.2s;
+  }
+  .gargalo:hover .g-num,
+  .gargalo.open .g-num { color: var(--signal); }
+  .g-title {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .g-desc {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin 0.3s;
+  }
+  .gargalo.open .g-desc { max-height: 140px; margin-top: 6px; }
+  .g-hint {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+  }
+  .gargalo.open .g-hint { display: none; }
+  .pill {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .pill.alta { background: #f2d9d1; color: var(--signal-deep); }
+  .pill.media { background: #ece3cd; color: var(--gold); }
+  .pill.hab { background: #d4e3dd; color: var(--teal); }
+
+  .causal {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 22px 26px;
+    margin-top: 28px;
+    font-size: 15px;
+  }
+  .causal b { color: #fff; }
+  .causal .tag {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--signal);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  /* ---- CANVAS GRID ---- */
+  .canvas-norte {
+    background: var(--navy);
+    color: #fff;
+    padding: 26px 28px;
+    margin-bottom: 14px;
+  }
+  .canvas-norte .tag {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9db8d6;
+    margin-bottom: 8px;
+  }
+  .canvas-norte .big {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  .canvas-norte .big span { color: #f0a87e; font-style: italic; }
+  .cgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .cblock {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 20px;
+    border-left: 3px solid var(--accent, var(--ink-faint));
+  }
+  .cblock h4 {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .cblock p { font-size: 14px; color: var(--ink-soft); }
+
+  /* ---- ONDAS ---- */
+  .onda {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    background: var(--card);
+    margin-bottom: -1px;
+  }
+  .onda-side {
+    padding: 22px 20px;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .onda-side .num {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+  }
+  .onda-side .nm {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+    margin-top: 4px;
+    line-height: 1.15;
+  }
+  .onda-body { padding: 22px 24px; }
+  .onda-body .auto {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 2px;
+    background: var(--paper-warm);
+    color: var(--ink-soft);
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .onda-body p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 12px; }
+  .gate {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12px;
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .gate::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: var(--teal);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .onda.w0 .onda-side { border-left: 3px solid var(--ink-faint); }
+  .onda.w1 .onda-side { border-left: 3px solid var(--navy); }
+  .onda.w2 .onda-side { border-left: 3px solid var(--teal); }
+  .onda.w3 .onda-side { border-left: 3px solid var(--signal); }
+
+  .progress-track {
+    display: flex;
+    gap: 6px;
+    margin: 0 0 24px;
+  }
+  .progress-track div {
+    flex: 1;
+    height: 4px;
+    background: var(--line);
+  }
+  .progress-track div.f0 { background: var(--ink-faint); }
+  .progress-track div.f1 { background: var(--navy); }
+  .progress-track div.f2 { background: var(--teal); }
+  .progress-track div.f3 { background: var(--signal); }
+
+  /* ---- GOVERNANCE ---- */
+  .gov {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .gov-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 22px;
+  }
+  .gov-card .ic {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    color: var(--signal);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .gov-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .gov-card p { font-size: 13.5px; color: var(--ink-soft); }
+
+  /* ---- CLOSE ---- */
+  .closing {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px 44px;
+    margin: 56px 0;
+  }
+  .closing .tag {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--signal);
+    margin-bottom: 18px;
+  }
+  .closing p {
+    font-family: 'Fraunces', serif;
+    font-size: 23px;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+  .closing p em { color: #f0a87e; font-style: italic; }
+
+  footer {
+    padding: 30px 0 60px;
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media (max-width: 720px) {
+    .split, .cgrid, .gov { grid-template-columns: 1fr; }
+    .onda { grid-template-columns: 1fr; }
+    .onda-side { border-right: none; border-bottom: 1px solid var(--line); }
+    .gargalo { grid-template-columns: 36px 1fr; }
+    .gargalo .pill { grid-column: 2; justify-self: start; margin-top: 8px; }
+    .closing { padding: 36px 26px; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: rise 0.6s ease forwards;
+  }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  /* ---- ONDA 1 DEEP DIVE ---- */
+  .deep {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--navy);
+    margin-top: 22px;
+    padding: 0;
+  }
+  .deep-head {
+    padding: 26px 30px 22px;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-warm);
+  }
+  .deep-head .kicker {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .deep-head h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 27px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .deep-head p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-top: 8px;
+    max-width: 640px;
+  }
+  .deep-body { padding: 28px 30px; }
+  .deep-body h4 {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--signal-deep);
+    margin: 26px 0 12px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+  .deep-body h4:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+  .deep-body p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 12px; }
+  .deep-body p strong { color: var(--ink); font-weight: 600; }
+
+  .arch-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 14px 0 6px;
+  }
+  .arch-item {
+    border: 1px solid var(--line);
+    padding: 16px 18px;
+    background: var(--paper);
+  }
+  .arch-item .n {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 11px;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .arch-item .t { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+  .arch-item p { font-size: 13px; margin-bottom: 0; }
+
+  .metric-row {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-row .mname {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 12px;
+    color: var(--teal);
+    flex-shrink: 0;
+    width: 180px;
+    letter-spacing: 0.02em;
+  }
+  .metric-row p { font-size: 13.5px; margin-bottom: 0; }
+
+  .role-line {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .role-line:last-child { border-bottom: none; }
+  .role-line .who {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .role-line p { font-size: 13.5px; margin-bottom: 0; }
+
+  .risk {
+    border-left: 3px solid var(--signal);
+    padding: 4px 0 4px 18px;
+    margin: 14px 0;
+  }
+  .risk .rname { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+  .risk p { font-size: 13.5px; margin-bottom: 0; }
+
+  .deep-close {
+    background: var(--navy);
+    color: #fff;
+    padding: 22px 30px;
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.45;
+  }
+  .deep-close span { color: #f0a87e; }
+
+  @media (max-width: 720px) {
+    .arch-grid { grid-template-columns: 1fr; }
+    .metric-row { flex-direction: column; gap: 4px; }
+    .metric-row .mname { width: auto; }
+    .role-line { grid-template-columns: 1fr; gap: 2px; }
+    .deep-head, .deep-body, .deep-close { padding-left: 20px; padding-right: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Quantum Commerce · Consultoria de AI Engineering</div>
+    <h1>Bloco 1 — Estratégia &amp; <em>Governança</em></h1>
+    <p class="sub">Definindo o "Norte" da transformação: de uma plataforma reativa para uma entidade agêntica que executa processos de ponta a ponta.</p>
+    <div class="meta-row">
+      <span class="meta">ESCOPO &nbsp;<b>12 países · 5M+ SKUs</b></span>
+      <span class="meta">ENTREGÁVEIS &nbsp;<b>Canvas + Framework de adoção</b></span>
+      <span class="meta">HORIZONTE &nbsp;<b>4 ondas</b></span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button data-t="diag" class="active">01 · Diagnóstico</button>
+    <button data-t="garg">02 · Gargalos</button>
+    <button data-t="canvas">03 · Strategy Canvas</button>
+    <button data-t="ondas">04 · Framework de adoção</button>
+    <button data-t="gov">05 · Governança</button>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- 01 DIAGNÓSTICO -->
+  <section id="diag">
+    <div class="sec-num">01 — DIAGNÓSTICO</div>
+    <h2>O problema não é falta de dados.<br>É falta de ação autônoma sobre eles.</h2>
+    <p class="lead">A Quantum possui os dados — estoque, histórico, políticas. O que falta é a capacidade de agir sobre eles sem intervenção humana em cada passo. Essa é a real natureza do desafio.</p>
+    <p class="body">O "muro da escalabilidade operacional" é o <strong>sintoma</strong>. A <strong>causa</strong> é estrutural: cada função opera em silo e o custo marginal de atendimento cresce de forma linear com o volume. Chatbots de FAQ e filtros de busca não quebram essa linearidade — apenas a adiam.</p>
+
+    <div class="split">
+      <div class="dcard reactive">
+        <h4>Estado atual</h4>
+        <div class="big">Arquitetura reativa</div>
+        <p>Sistemas que respondem quando perguntados. Informação fragmentada, interpretação inconsistente, zero execução autônoma.</p>
+      </div>
+      <div class="dcard agentic">
+        <h4>Estado-alvo</h4>
+        <div class="big">Arquitetura agêntica</div>
+        <p>Sistemas que executam processos de ponta a ponta com autonomia supervisionada. O custo deixa de crescer com o volume.</p>
+      </div>
+    </div>
+    <div class="arrow-between">↓ &nbsp; A TRANSFORMAÇÃO É ESSA TRANSIÇÃO &nbsp; ↓</div>
+
+    <div class="pull">"Transformar a plataforma em uma entidade agêntica, onde a IA não apenas responda, mas execute processos complexos de ponta a ponta." — desafio da diretoria</div>
+  </section>
+
+  <!-- 02 GARGALOS -->
+  <section id="garg">
+    <div class="sec-num">02 — MAPEAMENTO DE GARGALOS</div>
+    <h2>Cinco gargalos, ranqueados por impacto × viabilidade</h2>
+    <p class="lead">Os três primeiros concentram o investimento inicial. Toque em cada linha para ver o detalhe.</p>
+
+    <div class="gargalo open" data-g>
+      <div class="g-num">01</div>
+      <div>
+        <div class="g-title">Suporte ao cliente fragmentado</div>
+        <div class="g-hint">toque para expandir</div>
+        <div class="g-desc">O estoque não "fala" com o suporte em tempo real e as políticas de devolução são interpretadas de forma inconsistente por humanos. É o gargalo com maior custo recorrente e maior dor de marca.</div>
+      </div>
+      <span class="pill alta">Prioridade alta</span>
+    </div>
+
+    <div class="gargalo" data-g>
+      <div class="g-num">02</div>
+      <div>
+        <div class="g-title">Abandono de carrinho sem contexto</div>
+        <div class="g-hint">toque para expandir</div>
+        <div class="g-desc">A recomendação não considera contexto emocional nem histórico profundo do cliente. Num catálogo de 5M de SKUs, o abandono raramente é só preço — é fricção cognitiva: o cliente não encontra, não confia, ou não recebe o empurrão certo.</div>
+      </div>
+      <span class="pill alta">Prioridade alta</span>
+    </div>
+
+    <div class="gargalo" data-g>
+      <div class="g-num">03</div>
+      <div>
+        <div class="g-title">Logística de última milha reativa</div>
+        <div class="g-hint">toque para expandir</div>
+        <div class="g-desc">A gestão logística não antecipa rupturas nem reroteia proativamente. Em 12 países, cada falha de previsão vira custo de SLA, reenvio e atrito — que contamina diretamente o suporte.</div>
+      </div>
+      <span class="pill alta">Prioridade alta</span>
+    </div>
+
+    <div class="gargalo" data-g>
+      <div class="g-num">04</div>
+      <div>
+        <div class="g-title">Personalização por RPA e scripts</div>
+        <div class="g-hint">toque para expandir</div>
+        <div class="g-desc">Campanhas baseadas em regras fixas não escalam para 12 mercados com nuances culturais. Alto custo de manutenção, baixo retorno incremental.</div>
+      </div>
+      <span class="pill media">Prioridade média</span>
+    </div>
+
+    <div class="gargalo" data-g>
+      <div class="g-num">05</div>
+      <div>
+        <div class="g-title">Conhecimento operacional não-codificado</div>
+        <div class="g-hint">toque para expandir</div>
+        <div class="g-desc">Políticas, exceções e "jeitinhos" vivem na cabeça de pessoas. Sem isso estruturado, nenhum agente é confiável. É um gargalo habilitador — precisa ser endereçado em paralelo, não depois.</div>
+      </div>
+      <span class="pill hab">Habilitador</span>
+    </div>
+
+    <div class="causal">
+      <span class="tag">Cadeia causal</span>
+      O gargalo <b>3</b> alimenta o <b>1</b> — falha logística vira atrito de suporte. E o gargalo <b>5</b> bloqueia todos os demais. Isso não é só um ranking: é o que define o <b>sequenciamento do roadmap</b>. A fundação vem primeiro.
+    </div>
+  </section>
+
+  <!-- 03 CANVAS -->
+  <section id="canvas">
+    <div class="sec-num">03 — AI STRATEGY CANVAS</div>
+    <h2>Nove blocos, uma página, um norte</h2>
+    <p class="lead">O quadro que sintetiza a estratégia e abre a conversa com a diretoria.</p>
+
+    <div class="canvas-norte">
+      <div class="tag">Visão / Norte</div>
+      <div class="big">Tornar-se uma <span>entidade agêntica de varejo</span> — IA que executa processos ponta a ponta. Métrica-síntese: fricção zero.</div>
+    </div>
+
+    <div class="cgrid">
+      <div class="cblock" style="--accent:var(--teal)">
+        <h4>Casos de uso prioritários</h4>
+        <p>(1) Agente de suporte resolutivo · (2) Recomendação contextual · (3) Orquestração logística.</p>
+      </div>
+      <div class="cblock" style="--accent:var(--navy)">
+        <h4>Dados</h4>
+        <p>O ativo já existe. O gargalo está na unificação e governança, não na coleta. Necessário: camada semântica única.</p>
+      </div>
+      <div class="cblock" style="--accent:var(--signal)">
+        <h4>Capacidades técnicas</h4>
+        <p>RAG sobre base unificada, orquestração multi-agente, tool calling sobre sistemas legados, observabilidade.</p>
+      </div>
+      <div class="cblock" style="--accent:var(--gold)">
+        <h4>Pessoas e talento</h4>
+        <p>AI Engineers como arquitetos. Times de suporte e logística migram para supervisores de agentes.</p>
+      </div>
+      <div class="cblock" style="--accent:var(--signal)">
+        <h4>Governança e risco</h4>
+        <p>Guardrails por nível de impacto, human-in-the-loop nas ações de alto risco, trilha de auditoria completa.</p>
+      </div>
+      <div class="cblock" style="--accent:var(--teal)">
+        <h4>Modelo operacional</h4>
+        <p>De operador de tarefa para gestor de exceção. O humano sai do fluxo e entra no loop de supervisão.</p>
+      </div>
+      <div class="cblock" style="--accent:var(--navy)">
+        <h4>Métricas de valor</h4>
+        <p>Custo por atendimento, tempo de resolução, conversão pós-recomendação, autonomy rate.</p>
+      </div>
+      <div class="cblock" style="--accent:var(--ink-faint)">
+        <h4>Infraestrutura e parcerias</h4>
+        <p>Modelos fundacionais, infraestrutura de orquestração, plataforma de observabilidade de LLM.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 ONDAS -->
+  <section id="ondas">
+    <div class="sec-num">04 — FRAMEWORK DE ADOÇÃO</div>
+    <h2>Quatro ondas. Cada uma conquista a próxima.</h2>
+    <p class="lead">O princípio que sustenta o framework: <strong style="color:var(--ink)">autonomia se conquista com evidência, não se concede por decreto.</strong> Cada onda tem um gate de métrica que autoriza a seguinte.</p>
+
+    <div class="progress-track">
+      <div class="f0"></div><div class="f1"></div><div class="f2"></div><div class="f3"></div>
+    </div>
+
+    <div class="onda w0">
+      <div class="onda-side">
+        <div class="num">ONDA 0</div>
+        <div class="nm">Fundação</div>
+      </div>
+      <div class="onda-body">
+        <span class="auto">Habilitador · roda em paralelo</span>
+        <p>Unificação da camada de conhecimento: políticas de devolução, regras de estoque e exceções operacionais codificadas e versionadas. Sem isso, nenhum agente é confiável.</p>
+        <div class="gate">Gate: base semântica única + governança de dados ativa</div>
+      </div>
+    </div>
+
+    <div class="onda w1">
+      <div class="onda-side">
+        <div class="num">ONDA 1</div>
+        <div class="nm">Copiloto</div>
+      </div>
+      <div class="onda-body">
+        <span class="auto">Humano no fluxo</span>
+        <p>O agente de suporte sugere respostas ao atendente humano, consultando estoque e políticas em tempo real. O humano ainda decide. Objetivo: provar acurácia e ganhar confiança institucional.</p>
+        <div class="gate">Gate: acurácia da sugestão acima do limiar</div>
+      </div>
+    </div>
+
+    <div class="onda w2">
+      <div class="onda-side">
+        <div class="num">ONDA 2</div>
+        <div class="nm">Agente supervisionado</div>
+      </div>
+      <div class="onda-body">
+        <span class="auto">Human-in-the-loop</span>
+        <p>O agente passa a executar resoluções de baixo risco sozinho e escala apenas exceções. Em paralelo entra a recomendação contextual. Ações de alto impacto ainda exigem aprovação humana.</p>
+        <div class="gate">Gate: confiança comprovada na Onda 1</div>
+      </div>
+    </div>
+
+    <div class="onda w3">
+      <div class="onda-side">
+        <div class="num">ONDA 3</div>
+        <div class="nm">Orquestração agêntica</div>
+      </div>
+      <div class="onda-body">
+        <span class="auto">Autonomia ponta a ponta</span>
+        <p>Múltiplos agentes colaboram: o agente logístico detecta risco de ruptura, reroteia e notifica o agente de suporte, que comunica o cliente antes da reclamação. A Quantum vira, de fato, a entidade agêntica.</p>
+        <div class="gate">Gate: autonomy rate no alvo definido com a diretoria</div>
+      </div>
+    </div>
+
+    <div class="deep">
+      <div class="deep-head">
+        <div class="kicker">Detalhamento · Onda 1</div>
+        <h3>Copiloto — o plano de execução</h3>
+        <p>A onda mais importante de acertar: é ela que constrói — ou destrói — a confiança institucional no resto do programa.</p>
+      </div>
+      <div class="deep-body">
+
+        <h4>O que é e por que ela existe</h4>
+        <p>A Onda 1 coloca um agente de IA ao lado do atendente humano, não no lugar dele. O agente lê o ticket, consulta estoque e políticas em tempo real, e <strong>sugere</strong> a resposta ou a ação. O humano revisa, ajusta se preciso, e envia. Toda decisão final continua sendo humana.</p>
+        <p>Parece pouco ambicioso — e é proposital. A Onda 1 não está resolvendo o problema de custo ainda; ela resolve um problema anterior e mais perigoso: <strong>a organização não confia na IA para agir sozinha, e com razão, porque ninguém ainda mediu se ela acerta.</strong> A Onda 1 é o experimento controlado que gera essa evidência — barata de errar, porque o humano filtra, e cada interação vira um dado sobre acurácia.</p>
+
+        <h4>O problema específico que ela ataca</h4>
+        <p>Direto no Gargalo 1: o estoque não fala com o suporte em tempo real e as políticas de devolução são interpretadas de forma inconsistente. Na Onda 1 o copiloto não conserta a fonte dos dados — ele faz a <strong>ponte</strong>. Ao abrir um ticket de devolução, o agente já traz status do pedido, política aplicável àquele SKU/país/data e uma resposta sugerida coerente. O atendente para de garimpar em cinco sistemas e passa a validar uma proposta.</p>
+
+        <h4>Arquitetura mínima</h4>
+        <div class="arch-grid">
+          <div class="arch-item">
+            <div class="n">01</div>
+            <div class="t">Base de conhecimento (RAG)</div>
+            <p>As políticas unificadas da Onda 0, indexadas e recuperáveis. Sem isso, o copiloto alucina política — e alucinar política destrói confiança.</p>
+          </div>
+          <div class="arch-item">
+            <div class="n">02</div>
+            <div class="t">Conectores de leitura</div>
+            <p>Tool calling somente-leitura para pedido e estoque. O agente lê tudo e escreve nada — elimina a categoria de risco "ação errada".</p>
+          </div>
+          <div class="arch-item">
+            <div class="n">03</div>
+            <div class="t">Camada de sugestão</div>
+            <p>O agente compõe a resposta e a entrega dentro da ferramenta que o atendente já usa, sem trocar de tela.</p>
+          </div>
+          <div class="arch-item">
+            <div class="n">04</div>
+            <div class="t">Captura de feedback</div>
+            <p>Aceite, edição ou descarte de cada sugestão é registrado. Esse log é o produto mais valioso da onda.</p>
+          </div>
+        </div>
+
+        <h4>A métrica-gate</h4>
+        <p>A Onda 1 só autoriza a Onda 2 quando a <strong>acurácia da sugestão</strong> passa de um limiar definido com a diretoria. Três coisas a instrumentar:</p>
+        <div class="metric-row">
+          <span class="mname">Aceitação sem edição</span>
+          <p>De quantas sugestões o atendente envia como vieram. É o sinal mais forte de que o agente acertou sozinho.</p>
+        </div>
+        <div class="metric-row">
+          <span class="mname">Edição leve × descarte</span>
+          <p>Sugestão editada levemente ainda indica um agente útil; descartada indica que ele errou o alvo. A proporção mostra se está perto ou longe.</p>
+        </div>
+        <div class="metric-row">
+          <span class="mname">Acurácia em compliance</span>
+          <p>Separado e mais rígido. Política de devolução, reembolso e regras exigem acurácia quase absoluta — erro aqui vira risco jurídico em 12 jurisdições.</p>
+        </div>
+        <p style="margin-top:14px">O princípio para a diretoria: o gate não é "a IA é boa o suficiente", é <strong>"a IA erra de forma rara e previsível o bastante para que, na Onda 2, a gente saiba exatamente quais casos ela pode assumir."</strong></p>
+
+        <h4>Quem faz o quê</h4>
+        <div class="role-line">
+          <span class="who">AI Engineer</span>
+          <p>Arquiteta o RAG, os conectores e a camada de sugestão, e instrumenta a captura de feedback.</p>
+        </div>
+        <div class="role-line">
+          <span class="who">Time de suporte</span>
+          <p>Muda de papel já aqui: além de atender, está treinando e avaliando o agente a cada aceite ou descarte. Vale nomear isso — não é vigilância, é o mecanismo que torna o trabalho deles menos repetitivo nas próximas ondas.</p>
+        </div>
+        <div class="role-line">
+          <span class="who">Diretoria</span>
+          <p>Define o limiar do gate e o período de observação antes da decisão de avançar.</p>
+        </div>
+
+        <h4>Riscos próprios da Onda 1</h4>
+        <div class="risk">
+          <div class="rname">Excesso de confiança do atendente</div>
+          <p>Se o copiloto for bom, o atendente para de revisar e só clica "aceitar" — perde-se o filtro humano e contamina-se a métrica. Mitigação: amostragem de auditoria independente.</p>
+        </div>
+        <div class="risk">
+          <div class="rname">A Onda 0 não estava pronta</div>
+          <p>Base incompleta faz o copiloto sugerir com confiança coisas erradas. A Onda 1 só começa com uma fatia da base já confiável — comece pelos casos de devolução mais comuns, não pelo catálogo inteiro.</p>
+        </div>
+        <div class="risk">
+          <div class="rname">Medir vaidade em vez de verdade</div>
+          <p>Aceitação alta pode significar "agente ótimo" ou "atendente não está olhando". A auditoria independente é o que separa os dois.</p>
+        </div>
+
+      </div>
+      <div class="deep-close">
+        A Onda 1 é a onda em que a IA não economiza dinheiro ainda — ela <span>ganha o direito de economizar dinheiro depois.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 GOVERNANÇA -->
+  <section id="gov">
+    <div class="sec-num">05 — GOVERNANÇA</div>
+    <h2>O que protege a transformação</h2>
+    <p class="lead">Três pilares que precisam existir desde a Onda 0 — não depois.</p>
+
+    <div class="gov">
+      <div class="gov-card">
+        <div class="ic">◆</div>
+        <h4>Guardrails e níveis de autonomia</h4>
+        <p>Ações classificadas por impacto: informacional → transacional baixo → transacional alto → irreversível. Cada nível define quem aprova. A IA nunca decide sozinha algo irreversível.</p>
+      </div>
+      <div class="gov-card">
+        <div class="ic">⊕</div>
+        <h4>Human-in-the-loop estruturado</h4>
+        <p>Não é "humano revisa tudo" (não escala) nem "humano revisa nada" (não é seguro). É o humano revisando exceções e amostras, com o sistema aprendendo das correções.</p>
+      </div>
+      <div class="gov-card">
+        <div class="ic">▤</div>
+        <h4>Observabilidade e auditoria</h4>
+        <p>Toda decisão de agente precisa ser rastreável: o que consultou, o que decidiu, com que confiança. Requisito de compliance em 12 jurisdições e base para melhorar o sistema.</p>
+      </div>
+    </div>
+
+    <div class="closing">
+      <div class="tag">Síntese para a diretoria</div>
+      <p>A Quantum tem os dados e tem a urgência. O que falta é a camada de <em>ação autônoma governada</em>. O caminho não é um grande projeto de IA — é uma sequência de quatro ondas, onde cada uma entrega valor mensurável e conquista o direito de avançar. O papel do AI Engineer é ser o <em>arquiteto dessa progressão</em>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>BLOCO 1 / 5 · ESTRATÉGIA E GOVERNANÇA</span>
+    <span>QUANTUM COMMERCE · BRIEFING EXECUTIVO</span>
+  </footer>
+
+</div>
+
+<script>
+  // Nav scroll-spy + click
+  const buttons = document.querySelectorAll('.nav-inner button');
+  const sections = [...buttons].map(b => document.getElementById(b.dataset.t));
+
+  buttons.forEach(b => b.addEventListener('click', () => {
+    document.getElementById(b.dataset.t).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        buttons.forEach(b => b.classList.toggle('active', b.dataset.t === e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => spy.observe(s));
+
+  // Gargalo accordion
+  document.querySelectorAll('[data-g]').forEach(g => {
+    g.addEventListener('click', () => g.classList.toggle('open'));
+  });
+
+  // Reveal on scroll
+  const revealer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('reveal');
+        revealer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('section > *').forEach((el, i) => {
+    el.style.animationDelay = (i % 6) * 0.05 + 's';
+    revealer.observe(el);
+  });
+</script>
+
+</body>
+</html>
